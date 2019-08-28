@@ -4,14 +4,15 @@ let _gifService = new GifService()
 
 function _drawApiGif() {
   let gif = _gifService.ApiGif
-  let template = "<ol>"
+  let template = ""
   gif.forEach(g => {
-    template += `<li onclick="app.controllers.gifController.getOne("${g.name}")">${g.name}</li>`
+    // template += `<li onclick="app.controllers.gifController.getOne("${g.title}")">${g.title}</li>`
+    template += g.Template
   })
-  document.getElementById("api-gif").innerHTML = template + "</ol>"
+  document.getElementById("api-gif").innerHTML = template
 }
 function _drawCurrentGif() {
-  document.getElementById("api-gif").innerHTML = _gifService.CurrentGif.Template
+  document.getElementById("current-gif").innerHTML = _gifService.CurrentGif.Template
 }
 function _drawMyGif() {
   let gif = _gifService.MyGif

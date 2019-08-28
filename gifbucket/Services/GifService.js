@@ -33,7 +33,7 @@ export default class GifService {
     return _state.myGif.map(g => new Gif(g))
   }
   get ApiGif() {
-    return _state.apiGif
+    return _state.apiGif.map(g => new Gif(g))
   }
   get CurrentGif() {
     return new Gif(_state.currentGif)
@@ -48,8 +48,8 @@ export default class GifService {
   getAllApi() {
     _gifApi.get()
       .then(res => {
-        _setState("apiGif", res.data.data)
         console.log(res.data.data)
+        _setState("apiGif", res.data.data)
       })
       .catch(err => console.error(err))
   }
