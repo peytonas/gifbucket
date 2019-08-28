@@ -82,14 +82,14 @@ export default class GifService {
   }
 
   //TODO removeGif function here
-
-
-
-
-
-
-
-
+  removeGif(cb) {
+    _sandbox.delete(_state.currentGif._id)
+      .then(res => {
+        let index = _state.myGif.findIndex(g => g._id == _state.currentGif._id)
+        _state.myGif.splice(index, 1)
+        _setState("myGif", _state.myGif)
+      })
+  }
 }
 
 

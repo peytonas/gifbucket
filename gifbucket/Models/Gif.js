@@ -20,7 +20,7 @@ export default class Gif {
         <h5 class="card-title">${this.title}</h5>
         <button class="btn btn-warning" onclick="app.controllers.gifController.addGif()">Add Gif</button>
 
-        ${this.id ? `<button class="btn btn-danger" onclick="app.controllers.gifController.removeGif()">Re-Gif-t</button>` : ""}
+        ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.gifController.removeGif()">Re-Gif-t</button>` : ""}
       </div>
     </div>
   `

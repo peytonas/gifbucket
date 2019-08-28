@@ -40,10 +40,8 @@ export default class GifController {
   addGif() {
     _gifService.add()
   }
-
-  // TODO add removeGif function in service for this to work
-  // removeGif() {
-  //   _gifService.removeGif()
-  //   document.getElementById("current-gif").innerHTML = ""
-  // }
+  removeGif() {
+    _gifService.removeGif()
+    document.getElementById("current-gif").innerHTML = ""
+  }
 }
