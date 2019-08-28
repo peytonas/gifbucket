@@ -5,7 +5,6 @@ export default class Gif {
     this.myUrl = data.myUrl || data.embed_url
   }
 
-  //FIXME do I even need this generate function?
   generateImgClasses() {
     let classes = ""
     this.myUrl.forEach(i => classes += i.myUrl.name + " ")
@@ -18,6 +17,7 @@ export default class Gif {
       <iframe src="${this.myUrl}" frameborder="0" class="card-img-top"></iframe>
       <div class="card-body">
         <h5 class="card-title">${this.title}</h5>
+        <button class="btn btn-success" onclick="app.controllers.gifController.selectGif()">Select</button>
         <button class="btn btn-warning" onclick="app.controllers.gifController.addGif()">Add Gif</button>
 
         ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.gifController.removeGif()">Re-Gif-t</button>` : ""}

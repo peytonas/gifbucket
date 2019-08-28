@@ -7,7 +7,7 @@ let _gifApi = axios.create({
 
 
 // @ts-ignore
-let _sandbox = axios.create({
+let _sandBox = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/peyton/gifs"
 })
 
@@ -53,8 +53,8 @@ export default class GifService {
       })
       .catch(err => console.error(err))
   }
-  getOne(name) {
-    _gifApi.get(name)
+  getOne(title) {
+    _gifApi.get(title)
       .then(res => {
         let giphy = new Gif(res.data)
         _setState("currentGif", giphy)
@@ -63,7 +63,7 @@ export default class GifService {
       .catch(err => console.error(err))
   }
   getMyGif() {
-    _sandbox.get()
+    _sandBox.get()
       .then(res => {
         let data = res.data.data.map(g => new Gif(g))
         _setState("myGif", data)
@@ -72,8 +72,9 @@ export default class GifService {
       .catch(err => console.error(err))
   }
 
+  // TODO select button function?
   add() {
-    _sandbox.post("", _state.currentGif)
+    _sandBox.post("", _state.currentGif)
       .then(res => {
         _state.myGif.push(new Gif(res.data.data))
         _setState("myGif", _state.myGif)
@@ -81,9 +82,8 @@ export default class GifService {
       .catch(err => console.error(err))
   }
 
-  //TODO removeGif function here
-  removeGif(cb) {
-    _sandbox.delete(_state.currentGif._id)
+  removeGif() {
+    _sandBox.delete(_state.currentGif._id)
       .then(res => {
         let index = _state.myGif.findIndex(g => g._id == _state.currentGif._id)
         _state.myGif.splice(index, 1)
