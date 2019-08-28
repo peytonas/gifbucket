@@ -1,4 +1,4 @@
-import GifController from "./Controllers/GifController.js";
+import GifController from "./gifbucket/Controllers/GifController.js"
 
 class App {
   constructor() {

@@ -8,7 +8,7 @@ let _gifApi = axios.create({
 
 // @ts-ignore
 let _sandbox = axios.create({
-  baseURL: "https://cors-anywhere.herokuapp.com/api/peyton/gifs"
+  baseURL: "//bcw-sandbox.herokuapp.com/api/peyton/gifs"
 })
 
 let _state = {
