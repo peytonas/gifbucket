@@ -38,6 +38,7 @@ export default class GifService {
   get CurrentGif() {
     return new Gif(_state.currentGif)
   }
+
   select(id) {
     _gifApi.get(id)
       .then(res => {
@@ -45,6 +46,7 @@ export default class GifService {
         _setState("currentGif", new Gif(res.data))
       })
   }
+
   addSubscriber(propName, fn) {
     _subscribers[propName].push(fn)
   }
