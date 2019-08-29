@@ -5,12 +5,6 @@ export default class Gif {
     this.myUrl = data.myUrl || data.embed_url
   }
 
-  generateImgClasses() {
-    let classes = ""
-    this.myUrl.forEach(i => classes += i.myUrl.name + " ")
-    return classes
-  }
-
   get Template() {
     return `
     <div class="card">
@@ -18,9 +12,9 @@ export default class Gif {
       <div class="card-body">
         <h5 class="card-title">${this.title}</h5>
         <button class="btn btn-success" onclick="app.controllers.gifController.select()">Select</button>
-        <button class="btn btn-warning" onclick="app.controllers.gifController.addGif()">Add Gif</button>
+        <button class="btn btn-warning" onclick="app.controllers.gifController.addGif()">Add GIF</button>
 
-        ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.gifController.removeGif()">Re-Gif-t</button>` : ""}
+        ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.gifController.removeGif()">Re-GIF-t</button>` : ""}
       </div>
     </div>
   `
