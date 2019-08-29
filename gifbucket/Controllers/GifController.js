@@ -32,6 +32,9 @@ export default class GifController {
     _gifService.getAllApi()
     _gifService.getMyGif()
   }
+  select(id) {
+    _gifService.select(id)
+  }
   getOne(title) {
     _gifService.getOne(title)
   }

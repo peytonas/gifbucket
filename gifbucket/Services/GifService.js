@@ -38,6 +38,13 @@ export default class GifService {
   get CurrentGif() {
     return new Gif(_state.currentGif)
   }
+  select(id) {
+    _gifApi.get(id)
+      .then(res => {
+        console.log(res.data);
+        _setState("currentGif", new Gif(res.data))
+      })
+  }
   addSubscriber(propName, fn) {
     _subscribers[propName].push(fn)
   }
@@ -73,6 +80,7 @@ export default class GifService {
   }
 
   // TODO select button function?
+
   add() {
     _sandBox.post("", _state.currentGif)
       .then(res => {
