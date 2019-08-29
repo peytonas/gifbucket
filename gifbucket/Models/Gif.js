@@ -7,8 +7,8 @@ export default class Gif {
 
   get Template() {
     return `
-    <div class="card">
-      <iframe src="${this.myUrl}" frameborder="0" class="card-img-top"></iframe>
+    <div class="card text-white bg-primary mb-3">
+      <iframe class="card-header" src="${this.myUrl}" frameborder="0" class="card-img-top"></iframe>
       <div class="card-body">
         <h5 class="card-title">${this.title}</h5>
         <button class="btn btn-success" onclick="app.controllers.gifController.select()">Select</button>
