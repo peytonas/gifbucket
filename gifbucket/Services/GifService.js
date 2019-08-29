@@ -27,7 +27,6 @@ function _setState(propName, data) {
   _state[propName] = data
   _subscribers[propName].forEach(fn => fn())
 }
-
 export default class GifService {
   get MyGif() {
     return _state.myGif.map(g => new Gif(g))
@@ -38,7 +37,6 @@ export default class GifService {
   get CurrentGif() {
     return new Gif(_state.currentGif)
   }
-
   select(id) {
     _gifApi.get(id)
       .then(res => {
@@ -46,7 +44,6 @@ export default class GifService {
         _setState("currentGif", new Gif(res.data))
       })
   }
-
   addSubscriber(propName, fn) {
     _subscribers[propName].push(fn)
   }
@@ -80,9 +77,6 @@ export default class GifService {
       })
       .catch(err => console.error(err))
   }
-
-  // TODO select button function?
-
   add() {
     _sandBox.post("", _state.currentGif)
       .then(res => {
@@ -91,7 +85,6 @@ export default class GifService {
       })
       .catch(err => console.error(err))
   }
-
   removeGif() {
     _sandBox.delete(_state.currentGif._id)
       .then(res => {
